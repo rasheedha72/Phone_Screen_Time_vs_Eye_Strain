@@ -1,0 +1,27 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load your dataset
+df = pd.read_csv('data/global_remote_work.csv')
+
+# Show first 5 rows
+print(df.head())
+
+# Check info
+print(df.info())
+
+# Check for missing values
+print(df.isnull().sum())
+
+# Show stats
+print(df[['Screen_Time', 'Stress_Level']].describe())
+
+# Plot Screen Time vs Stress Level
+plt.figure(figsize=(8,6))
+sns.scatterplot(x='Screen_Time', y='Stress_Level', data=df)
+plt.title('Screen Time vs Stress Level (Proxy for Eye Strain)')
+plt.xlabel('Screen Time (hours)')
+plt.ylabel('Stress Level')
+plt.grid(True)
+plt.show()
